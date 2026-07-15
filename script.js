@@ -70,23 +70,8 @@ animateElements.forEach(el => {
 const contactForm = document.querySelector('.contact-form');
 
 contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = contactForm.querySelector('input[type="text"]').value;
-    const email = contactForm.querySelector('input[type="email"]').value;
-    const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-    const message = contactForm.querySelector('textarea').value;
-    
-    // Simple validation
-    if (name && email && subject && message) {
-        // Show success message (in a real app, you'd send this to a server)
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-    } else {
-        alert('Please fill in all fields.');
-    }
+    // Formspree will handle the submission, so we don't prevent default
+    // Just let the form submit naturally to Formspree
 });
 
 // Typing effect disabled to prevent flickering
