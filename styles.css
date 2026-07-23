@@ -508,18 +508,6 @@ section {
     color: var(--primary);
 }
 
-.certificate-image {
-    margin: 0 auto 1.5rem;
-    text-align: center;
-}
-
-.certificate-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-}
-
 .certificate-title {
     font-size: 1.25rem;
     font-weight: 700;
