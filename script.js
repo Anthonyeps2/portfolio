@@ -66,27 +66,22 @@ animateElements.forEach(el => {
     observer.observe(el);
 });
 
-// Contact form handling
+// Contact form handling with Formspree
+// Using standard form submission for better GitHub Pages compatibility
 const contactForm = document.querySelector('.contact-form');
 
+// Optional: Add client-side validation before submission
 contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    const name = contactForm.querySelector('input[name="name"]').value;
+    const email = contactForm.querySelector('input[name="email"]').value;
+    const subject = contactForm.querySelector('input[name="subject"]').value;
+    const message = contactForm.querySelector('textarea[name="message"]').value;
     
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = contactForm.querySelector('input[type="text"]').value;
-    const email = contactForm.querySelector('input[type="email"]').value;
-    const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-    const message = contactForm.querySelector('textarea').value;
-    
-    // Simple validation
-    if (name && email && subject && message) {
-        // Show success message (in a real app, you'd send this to a server)
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
-    } else {
+    if (!name || !email || !subject || !message) {
+        e.preventDefault();
         alert('Please fill in all fields.');
     }
+    // If all fields are filled, let the form submit normally to Formspree
 });
 
 // Typing effect disabled to prevent flickering
